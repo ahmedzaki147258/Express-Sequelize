@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config.js";
 
-const User = sequelize.define('User', {
+const Student = sequelize.define('Student', {
     id: {
         type: DataTypes.BIGINT.UNSIGNED,
         autoIncrement: true,
@@ -31,9 +31,9 @@ const User = sequelize.define('User', {
 });
 
 sequelize.sync().then(() => {
-    console.log('Book table created successfully!');
- }).catch((error) => {
+    console.log('Student table created successfully!');
+}).catch((error) => {
     console.error('Unable to create table : ', error);
- });
+});
 
-export default User;
+export default Student;

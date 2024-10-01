@@ -1,9 +1,20 @@
-export const transformUser = async (user) => {
+export const transformStudent = async (student) => {
     return {
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        age: user.age,
-        country: user.country ?? ""
+        id: student.id,
+        name: student.name,
+        email: student.email,
+        age: student.age,
+        country: student.country ?? "",
+        subjects: await Promise.all(
+            student.Subjects.map(async (subject) => await transformSubject(subject))
+        )
+    }
+}
+
+export const transformSubject = async (Subject) => {
+    return {
+        id: Subject.id,
+        name: Subject.name,
+        description: Subject.description
     }
 }

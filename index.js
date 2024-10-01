@@ -1,10 +1,10 @@
 import express from "express";
 import sequelize from "./config.js";
-import userRoute from "./routes/user.js";
+import studentRoute from "./routes/student.js";
 const app = express();
 
 app.use(express.json());
-app.use('/api/users', userRoute);
+app.use('/api/students', studentRoute);
 
 app.get("/", (req, res) => {
     res.send("Hello World!");
